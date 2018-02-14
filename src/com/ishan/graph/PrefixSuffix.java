@@ -38,8 +38,8 @@ public class PrefixSuffix {
         char[] reversedString = reverseString(originalString);
         int length = 0;
         int contentLength = content.length();
-        for (int i = 0; i < contentLength; i++) {
-            if (originalString[i] == reversedString[length - i]) {
+        for (int i = 0; i < contentLength / 2; i++) {
+            if (originalString[i] == reversedString[contentLength - i - 1]) {
                 length++;
             } else {
                 break;
@@ -52,7 +52,8 @@ public class PrefixSuffix {
         char[] reversedString = new char[content.length];
         int i = 0;
         for (char c : content) {
-            reversedString[i++] = c;
+            reversedString[content.length - i - 1] = c;
+            i++;
         }
         return reversedString;
     }
